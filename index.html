@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Indian Tribune Today</title>
+  <script src="https://tailwindcss.com"></script>
+  <style>
+    /* हमेशा ब्लिंक करने के लिए स्पेशल एनिमेशन */
+    @keyframes fastBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+    .live-blink {
+      animation: fastBlink 1.2s infinite;
+    }
+  </style>
+</head>
+<body class="bg-[#121212] text-white font-sans min-h-screen p-4 max-w-md mx-auto select-none">
+
+  <!-- Header Section -->
+  <header class="border-b border-gray-800 pb-4 mb-4">
+    <h1 class="text-3xl font-serif font-black tracking-tight uppercase">The Indian Tribune <span class="font-serif italic font-normal text-gray-300">Today</span></h1>
+    <div class="flex justify-between items-center mt-3 text-xs tracking-wider text-gray-400 font-mono">
+      <span class="border border-gray-800 px-2 py-1 rounded bg-gray-900/50" contenteditable="true">TUESDAY, SEPTEMBER 1, 2026</span>
+      <!-- Header Breaking Button (Blinking) -->
+      <span class="bg-red-600 text-white px-2 py-1 rounded font-bold live-blink flex items-center gap-1 shadow-lg shadow-red-900/50">
+        <span class="w-2 h-2 bg-white rounded-full inline-block"></span> BREAKING
+      </span>
+    </div>
+  </header>
+
+  <!-- Navigation / Filter Tags (All Blinking) -->
+  <div class="flex gap-2 mb-6 text-xs font-bold overflow-x-auto pb-2">
+    <span class="bg-red-600 text-white px-3 py-1.5 rounded-full flex items-center gap-1 live-blink cursor-pointer shrink-0">
+      <span class="w-1.5 h-1.5 bg-white rounded-full inline-block"></span> BREAKING
+    </span>
+    <span class="bg-black border border-red-600 text-red-500 px-3 py-1.5 rounded-full flex items-center gap-1 live-blink cursor-pointer shrink-0">
+      <span class="w-1.5 h-1.5 bg-red-500 rounded-full inline-block"></span> LIVE
+    </span>
+    <span class="border border-gray-700 bg-gray-900/30 text-gray-300 px-3 py-1.5 rounded-full cursor-pointer shrink-0">TOP STORY</span>
+    <span class="text-gray-500 px-1 py-1.5 font-mono shrink-0">5 MIN READ</span>
+  </div>
+
+  <!-- Top Story Section -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-serif font-bold mb-3 cursor-pointer hover:bg-gray-850 p-1 rounded transition-colors" contenteditable="true">
+      Top Story Headline Goes Here
+    </h2>
+    <p class="text-gray-400 text-sm mb-4 leading-relaxed cursor-pointer hover:bg-gray-850 p-1 rounded transition-colors" contenteditable="true">
+      This is a short summary of the top story. Tap to edit and replace with your own news summary that captures the essence of the day.
+    </p>
+
+    <!-- Photo Action Buttons -->
+    <div class="flex gap-2 mb-4 text-xs">
+      <button class="bg-gray-900 hover:bg-gray-800 text-gray-300 px-3 py-2 rounded-full flex items-center gap-1.5 border border-gray-800">
+        📷 Change Photo
+      </button>
+      <button class="bg-gray-900 hover:bg-gray-800 text-gray-300 px-3 py-2 rounded-full flex items-center gap-1.5 border border-gray-800">
+        🔗 Paste Image URL
+      </button>
+    </div>
+
+    <!-- Dummy Newspaper Graphic Illustration -->
+    <div class="w-full h-48 bg-gradient-to-b from-blue-900/60 to-emerald-900/40 border border-gray-800 rounded-lg relative overflow-hidden flex flex-col justify-between p-4">
+      <div class="flex justify-center gap-4 mt-2">
+        <div class="w-16 h-5 bg-black/40 rounded-full blur-[1px]"></div>
+        <div class="w-20 h-5 bg-black/40 rounded-full blur-[1px]"></div>
+      </div>
+      <div class="w-10 h-10 bg-amber-500/70 rounded-full absolute right-8 top-6 blur-[1px]"></div>
+      <div class="w-0 h-0 border-l-[30px] border-l-transparent border-r-[30px] border-r-transparent border-b-[45px] border-b-red-600/80 mx-auto"></div>
+      <div class="w-full h-14 bg-emerald-500/50 rounded-t-full absolute bottom-0 left-0 blur-[1px]"></div>
+    </div>
+  </section>
+
+  <!-- Top 10 News List -->
+  <section class="border-t border-gray-800 pt-4">
+    <div class="flex justify-between items-baseline mb-4">
+      <h3 class="text-lg font-serif font-bold uppercase tracking-tight text-red-500">Top 10 News of the Day</h3>
+      <span class="text-[10px] text-gray-500 font-mono tracking-wider uppercase">Editable Template</span>
+    </div>
+
+    <!-- News List Items (Fully Editable) -->
+    <div class="space-y-4">
+      <!-- Item 1 (From user screenshot) -->
+      <div class="flex items-start gap-4 border-b border-gray-900 pb-3">
+        <span class="text-2xl font-serif font-bold text-red-600 w-6 live-blink">1</span>
+        <div class="flex-1">
+          <h4 class="font-bold text-gray-100 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1.2em]" contenteditable="true">Prime Minister announces new infrastructure push worth ₹50,000 crore</h4>
+          <p class="text-xs text-gray-400 mt-1 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1em]" contenteditable="true">Major projects worth ₹50,000 crore announced for highways, rail and green energy corridors.</p>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="flex items-start gap-4 border-b border-gray-900 pb-3">
+        <span class="text-2xl font-serif font-bold text-gray-500 w-6">2</span>
+        <div class="flex-1">
+          <h4 class="font-bold text-gray-300 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1.2em]" contenteditable="true">[Headline 2]</h4>
+          <p class="text-xs text-gray-500 mt-1 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1em]" contenteditable="true">[Details - one line summary for item 2]</p>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="flex items-start gap-4 border-b border-gray-900 pb-3">
+        <span class="text-2xl font-serif font-bold text-gray-500 w-6">3</span>
+        <div class="flex-1">
+          <h4 class="font-bold text-gray-300 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1.2em]" contenteditable="true">[Headline 3]</h4>
+          <p class="text-xs text-gray-500 mt-1 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1em]" contenteditable="true">[Details - one line summary for item 3]</p>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="flex items-start gap-4 border-b border-gray-900 pb-3">
+        <span class="text-2xl font-serif font-bold text-gray-500 w-6">4</span>
+        <div class="flex-1">
+          <h4 class="font-bold text-gray-300 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1.2em]" contenteditable="true">[Headline 4]</h4>
+          <p class="text-xs text-gray-500 mt-1 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1em]" contenteditable="true">[Details - one line summary for item 4]</p>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="flex items-start gap-4 border-b border-gray-900 pb-3">
+        <span class="text-2xl font-serif font-bold text-gray-500 w-6">5</span>
+        <div class="flex-1">
+          <h4 class="font-bold text-gray-300 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1.2em]" contenteditable="true">[Headline 5]</h4>
+          <p class="text-xs text-gray-500 mt-1 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1em]" contenteditable="true Ramuj_edit">[Details - one line summary for item 5]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
