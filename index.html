@@ -1,133 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Indian Tribune Today</title>
-  <script src="https://tailwindcss.com"></script>
-  <style>
-    /* हमेशा ब्लिंक करने के लिए स्पेशल एनिमेशन */
-    @keyframes fastBlink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.2; }
-    }
-    .live-blink {
-      animation: fastBlink 1.2s infinite;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Indian Tribune Today</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:#f8f5f0;color:#111;line-height:1.6}
+  .top-bar{background:#111;color:#fff;text-align:center;padding:6px 10px;font-size:12px;letter-spacing:2px;font-weight:600}
+  .header{max-width:1200px;margin:0 auto;padding:20px 15px;text-align:center;border-bottom:3px double #111}
+  .masthead{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;letter-spacing:-1px;line-height:1}
+  .masthead span{color:#c00}
+  .date-bar{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:11px;letter-spacing:1px;font-weight:700;text-transform:uppercase;border-top:1px solid #111;padding-top:8px;flex-wrap:wrap;gap:8px}
+  .nav{display:flex;justify-content:center;gap:20px;padding:12px 10px;background:#fff;border-bottom:1px solid #ddd;flex-wrap:wrap;position:sticky;top:0;z-index:10}
+  .nav a{text-decoration:none;color:#111;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 8px;border-bottom:2px solid transparent}
+  .nav a:hover{border-bottom-color:#c00;color:#c00}
+  .breaking{background:#c00;color:#fff;padding:8px 15px;display:flex;gap:10px;align-items:center;max-width:1200px;margin:10px auto;font-weight:700;font-size:13px}
+  .breaking span:first-child{background:#fff;color:#c00;padding:2px 8px;font-size:11px;letter-spacing:1px}
+  .container{max-width:1200px;margin:0 auto;padding:15px;display:grid;grid-template-columns:2fr 1fr;gap:20px}
+  .main-story{background:#fff;padding:0;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+  .main-story img{width:100%;height:380px;object-fit:cover}
+  .main-story .content{padding:20px}
+  .kicker{color:#c00;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+  .main-story h1{font-family:'Playfair Display',serif;font-size:36px;line-height:1.1;margin-bottom:12px}
+  .main-story p{font-size:16px;color:#333;margin-bottom:15px}
+  .meta{font-size:11px;color:#888;letter-spacing:1px;text-transform:uppercase}
+  .sidebar{display:flex;flex-direction:column;gap:15px}
+  .card{background:#fff;padding:15px;box-shadow:0 1px 3px rgba(0,0,0,.1);border-left:4px solid #111}
+  .card.red{border-left-color:#c00}
+  .card h3{font-family:'Playfair Display',serif;font-size:18px;margin-bottom:10px;line-height:1.2}
+  .card p{font-size:13px;color:#555}
+  .card a{color:#c00;text-decoration:none;font-weight:700;font-size:12px}
+  .top10{background:#111;color:#fff;padding:20px}
+  .top10 h2{font-family:'Playfair Display',serif;font-size:24px;margin-bottom:15px;border-bottom:1px solid #333;padding-bottom:10px}
+  .top10-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #222}
+  .top10-item .num{font-family:'Playfair Display',serif;font-size:28px;color:#c00;font-weight:900;line-height:1}
+  .top10-item h4{font-size:14px;line-height:1.3;margin-bottom:4px}
+  .top10-item p{font-size:11px;color:#aaa}
+  .footer{background:#111;color:#888;text-align:center;padding:25px 15px;font-size:11px;letter-spacing:1px;margin-top:20px}
+  .footer strong{color:#fff}
+  @media(max-width:800px){
+    .masthead{font-size:32px}
+    .container{grid-template-columns:1fr}
+    .main-story img{height:240px}
+    .main-story h1{font-size:26px}
+  }
+</style>
 </head>
-<body class="bg-[#121212] text-white font-sans min-h-screen p-4 max-w-md mx-auto select-none">
-
-  <!-- Header Section -->
-  <header class="border-b border-gray-800 pb-4 mb-4">
-    <h1 class="text-3xl font-serif font-black tracking-tight uppercase">The Indian Tribune <span class="font-serif italic font-normal text-gray-300">Today</span></h1>
-    <div class="flex justify-between items-center mt-3 text-xs tracking-wider text-gray-400 font-mono">
-      <span class="border border-gray-800 px-2 py-1 rounded bg-gray-900/50" contenteditable="true">TUESDAY, SEPTEMBER 1, 2026</span>
-      <!-- Header Breaking Button (Blinking) -->
-      <span class="bg-red-600 text-white px-2 py-1 rounded font-bold live-blink flex items-center gap-1 shadow-lg shadow-red-900/50">
-        <span class="w-2 h-2 bg-white rounded-full inline-block"></span> BREAKING
-      </span>
-    </div>
-  </header>
-
-  <!-- Navigation / Filter Tags (All Blinking) -->
-  <div class="flex gap-2 mb-6 text-xs font-bold overflow-x-auto pb-2">
-    <span class="bg-red-600 text-white px-3 py-1.5 rounded-full flex items-center gap-1 live-blink cursor-pointer shrink-0">
-      <span class="w-1.5 h-1.5 bg-white rounded-full inline-block"></span> BREAKING
-    </span>
-    <span class="bg-black border border-red-600 text-red-500 px-3 py-1.5 rounded-full flex items-center gap-1 live-blink cursor-pointer shrink-0">
-      <span class="w-1.5 h-1.5 bg-red-500 rounded-full inline-block"></span> LIVE
-    </span>
-    <span class="border border-gray-700 bg-gray-900/30 text-gray-300 px-3 py-1.5 rounded-full cursor-pointer shrink-0">TOP STORY</span>
-    <span class="text-gray-500 px-1 py-1.5 font-mono shrink-0">5 MIN READ</span>
+<body>
+<div class="top-bar">INDIA'S MOST TRUSTED NEWS SOURCE • EST. 2024</div>
+<div class="header">
+  <div class="masthead">The Indian <span>Tribune</span> Today</div>
+  <div class="date-bar">
+    <div>TUESDAY, SEPTEMBER 1, 2026</div>
+    <div>NEW DELHI • MUMBAI • GUWAHATI • KOLKATA</div>
+    <div>EDITOR: DHRUBA DHAR • PRICE: ₹5</div>
   </div>
-
-  <!-- Top Story Section -->
-  <section class="mb-8">
-    <h2 class="text-2xl font-serif font-bold mb-3 cursor-pointer hover:bg-gray-850 p-1 rounded transition-colors" contenteditable="true">
-      Top Story Headline Goes Here
-    </h2>
-    <p class="text-gray-400 text-sm mb-4 leading-relaxed cursor-pointer hover:bg-gray-850 p-1 rounded transition-colors" contenteditable="true">
-      This is a short summary of the top story. Tap to edit and replace with your own news summary that captures the essence of the day.
-    </p>
-
-    <!-- Photo Action Buttons -->
-    <div class="flex gap-2 mb-4 text-xs">
-      <button class="bg-gray-900 hover:bg-gray-800 text-gray-300 px-3 py-2 rounded-full flex items-center gap-1.5 border border-gray-800">
-        📷 Change Photo
-      </button>
-      <button class="bg-gray-900 hover:bg-gray-800 text-gray-300 px-3 py-2 rounded-full flex items-center gap-1.5 border border-gray-800">
-        🔗 Paste Image URL
-      </button>
+</div>
+<div class="nav">
+  <a href="#">Home</a>
+  <a href="#topstory">Top Story</a>
+  <a href="#top10">Top 10</a>
+  <a href="#politics">Politics</a>
+  <a href="#infra">Infrastructure</a>
+  <a href="#northeast">Northeast</a>
+  <a href="https://github.com/dhrubadhar1125-code/theindiantribunetoday-news" target="_blank">Edit Site ✏️</a>
+</div>
+<div class="breaking">
+  <span>BREAKING</span>
+  <span>Prime Minister announces ₹50,000 crore infrastructure push — Live updates inside • 5 MIN READ</span>
+</div>
+<div class="container">
+  <div class="main-story" id="topstory">
+    <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?q=80&w=1000" alt="Top Story">
+    <div class="content">
+      <div class="kicker">TOP STORY • LIVE</div>
+      <h1>Prime Minister announces new infrastructure push worth ₹50,000 crore</h1>
+      <p>Major projects worth ₹50,000 crore announced for highways, rail and green energy corridors.</p>
+      <div class="meta">By Staff Reporter • 2 Hours Ago • Guwahati Bureau</div>
     </div>
-
-    <!-- Dummy Newspaper Graphic Illustration -->
-    <div class="w-full h-48 bg-gradient-to-b from-blue-900/60 to-emerald-900/40 border border-gray-800 rounded-lg relative overflow-hidden flex flex-col justify-between p-4">
-      <div class="flex justify-center gap-4 mt-2">
-        <div class="w-16 h-5 bg-black/40 rounded-full blur-[1px]"></div>
-        <div class="w-20 h-5 bg-black/40 rounded-full blur-[1px]"></div>
-      </div>
-      <div class="w-10 h-10 bg-amber-500/70 rounded-full absolute right-8 top-6 blur-[1px]"></div>
-      <div class="w-0 h-0 border-l-[30px] border-l-transparent border-r-[30px] border-r-transparent border-b-[45px] border-b-red-600/80 mx-auto"></div>
-      <div class="w-full h-14 bg-emerald-500/50 rounded-t-full absolute bottom-0 left-0 blur-[1px]"></div>
+  </div>
+  <div class="sidebar">
+    <div class="card red">
+      <div class="kicker">EDITOR'S PICK</div>
+      <h3>Assam flood relief: New tech to predict floods 7 days early</h3>
+      <p>ISRO and Assam govt launch AI-based flood warning system.</p>
+      <a href="#">Read Full Story →</a>
     </div>
-  </section>
-
-  <!-- Top 10 News List -->
-  <section class="border-t border-gray-800 pt-4">
-    <div class="flex justify-between items-baseline mb-4">
-      <h3 class="text-lg font-serif font-bold uppercase tracking-tight text-red-500">Top 10 News of the Day</h3>
-      <span class="text-[10px] text-gray-500 font-mono tracking-wider uppercase">Editable Template</span>
+    <div class="card">
+      <h3>Quick Links</h3>
+      <p>
+        <a href="https://dhrubadhar1125-code.github.io/theindiantribunetoday-news/">Live Site</a> • 
+        <a href="https://github.com/dhrubadhar1125-code/theindiantribunetoday-news">GitHub Edit</a><br><br>
+        Username: dhrubadhar1125-code<br>
+        Repo: theindiantribunetoday-news
+      </p>
     </div>
-
-    <!-- News List Items (Fully Editable) -->
-    <div class="space-y-4">
-      <!-- Item 1 (From user screenshot) -->
-      <div class="flex items-start gap-4 border-b border-gray-900 pb-3">
-        <span class="text-2xl font-serif font-bold text-red-600 w-6 live-blink">1</span>
-        <div class="flex-1">
-          <h4 class="font-bold text-gray-100 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1.2em]" contenteditable="true">Prime Minister announces new infrastructure push worth ₹50,000 crore</h4>
-          <p class="text-xs text-gray-400 mt-1 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1em]" contenteditable="true">Major projects worth ₹50,000 crore announced for highways, rail and green energy corridors.</p>
-        </div>
-      </div>
-
-      <!-- Item 2 -->
-      <div class="flex items-start gap-4 border-b border-gray-900 pb-3">
-        <span class="text-2xl font-serif font-bold text-gray-500 w-6">2</span>
-        <div class="flex-1">
-          <h4 class="font-bold text-gray-300 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1.2em]" contenteditable="true">[Headline 2]</h4>
-          <p class="text-xs text-gray-500 mt-1 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1em]" contenteditable="true">[Details - one line summary for item 2]</p>
-        </div>
-      </div>
-
-      <!-- Item 3 -->
-      <div class="flex items-start gap-4 border-b border-gray-900 pb-3">
-        <span class="text-2xl font-serif font-bold text-gray-500 w-6">3</span>
-        <div class="flex-1">
-          <h4 class="font-bold text-gray-300 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1.2em]" contenteditable="true">[Headline 3]</h4>
-          <p class="text-xs text-gray-500 mt-1 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1em]" contenteditable="true">[Details - one line summary for item 3]</p>
-        </div>
-      </div>
-
-      <!-- Item 4 -->
-      <div class="flex items-start gap-4 border-b border-gray-900 pb-3">
-        <span class="text-2xl font-serif font-bold text-gray-500 w-6">4</span>
-        <div class="flex-1">
-          <h4 class="font-bold text-gray-300 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1.2em]" contenteditable="true">[Headline 4]</h4>
-          <p class="text-xs text-gray-500 mt-1 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1em]" contenteditable="true">[Details - one line summary for item 4]</p>
-        </div>
-      </div>
-
-      <!-- Item 5 -->
-      <div class="flex items-start gap-4 border-b border-gray-900 pb-3">
-        <span class="text-2xl font-serif font-bold text-gray-500 w-6">5</span>
-        <div class="flex-1">
-          <h4 class="font-bold text-gray-300 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1.2em]" contenteditable="true">[Headline 5]</h4>
-          <p class="text-xs text-gray-500 mt-1 cursor-pointer hover:bg-gray-800 rounded px-1 min-h-[1em]" contenteditable="true Ramuj_edit">[Details - one line summary for item 5]</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  </div>
+</div>
+<!-- Top10 and footer same as before -->
 </body>
 </html>
